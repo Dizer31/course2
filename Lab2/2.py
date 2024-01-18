@@ -12,43 +12,40 @@ BOOKS_DATABASE = [
 ]
 
 
-# TODO написать класс Book
 class Book:
-    def __init__(self, id_, name, pages):
+    def __init__(self, id_: int, name: str, pages: int):
         self.id = id_
         self.name = name
         self.pages = pages
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"Книга \"{self.name}\""
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"{self.__class__.__name__}(id_={self.id}, name=\'{self.name}\', pages={self.pages})"
 
-    def get_id(self):
-        return self.id
 
-
-# TODO написать класс Library
 class Library:
-    def __init__(self, books=None):
+    def __init__(self, books: list = None):
         if books is None:
             self.books = list()
         else:
             self.books = books
 
-    def get_next_book_id(self):
+    def get_next_book_id(self) -> int:
         if len(self.books) == 0:
             return 1
         else:
             last_book = self.books[-1].id
             return last_book + 1
 
-    def get_index_by_book_id(self, id_):
-        for index, book in enumerate(self.books):
-            if book.id == id_:
-                return index
-        raise ValueError("Книги с запрашиваемым id не существует")
+    def get_index_by_book_id(self, id_: int) -> int:
+        if len(self.books) == 0:
+            raise ValueError("Книги с запрашиваемым id не существует")
+        else:
+            for index, book in enumerate(self.books):
+                if book.id == id_:
+                    return index
 
 
 if __name__ == '__main__':
@@ -62,3 +59,4 @@ if __name__ == '__main__':
     print(library_with_books.get_next_book_id())  # проверяем следующий id для непустой библиотеки
 
     print(library_with_books.get_index_by_book_id(1))  # проверяем индекс книги с id = 1
+
