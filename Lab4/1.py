@@ -24,7 +24,7 @@ class Vehicle:
         return f"{self.brand} {self.model} ({self.year})"
 
     def __repr__(self) -> str:
-        return f"Vehicle(brand='{self.brand}', model='{self.model}', year={self.year})"
+        return f"Vehicle(brand=\"{self.brand}\", model=\"{self.model}\", year={self.year})"
 
     def start(self) -> None:
         """Запускает двигатель транспортного средства.
@@ -65,7 +65,7 @@ class Car(Vehicle):
         return f"{self.color} {self.brand} {self.model} ({self.year})"
 
     def __repr__(self) -> str:
-        return f"Car(brand='{self.brand}', model='{self.model}', year={self.year}, color='{self.color}')"
+        return f"Car(brand=\"{self.brand}\", model=\"{self.model}\", year={self.year}, color=\"{self.color}\")"
 
     def lock_doors(self) -> None:
         """Закрывает двери автомобиля.
